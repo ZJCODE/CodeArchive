@@ -23,7 +23,7 @@ G.add_edges_from(relation_train_positive.values)
 
 partition = community.best_partition(G,resolution=resolution)
 
-print 'community num : %d'%(len(partition.values()))
+print 'community num : %d'%(len(set(partition.values())))
 
 
 
