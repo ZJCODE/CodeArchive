@@ -9,6 +9,7 @@ relation_test = pd.read_csv('./Data/relation_test.csv')
 relation_train_label = pd.read_csv('./Data/relation_train_label.csv')
 
 
+print 'test 20170219'
 
 G = nx.Graph()
 G.add_edges_from(relation_train_positive.values)
@@ -25,8 +26,10 @@ def prepare_vector_element_test(G,relation,filename):
         try:
             user2item_neighbor = nx.neighbors(G,item)
             np.random.shuffle(user2item_neighbor)
+            '''
             if len(user2item_neighbor) > Max_Num_Neighbor:
                 user2item_neighbor = user2item_neighbor[:Max_Num_Neighbor]
+            '''
         except:
              user2item_neighbor = []
              
@@ -36,8 +39,10 @@ def prepare_vector_element_test(G,relation,filename):
         try:
             item2user_neighbor = nx.neighbors(G,user)
             np.random.shuffle(item2user_neighbor)
+            '''
             if len(item2user_neighbor) > Max_Num_Neighbor:
             	item2user_neighbor = item2user_neighbor[:Max_Num_Neighbor]
+            '''
 
         except:
             item2user_neighbor = []
@@ -60,8 +65,10 @@ def prepare_vector_element_train(G,relation,label,filename):
         try:
             user2item_neighbor = nx.neighbors(G,item)
             np.random.shuffle(user2item_neighbor)
+            '''
             if len(user2item_neighbor) > Max_Num_Neighbor:
                 user2item_neighbor = user2item_neighbor[:Max_Num_Neighbor]
+            '''
         except:
              user2item_neighbor = []
              
@@ -71,8 +78,10 @@ def prepare_vector_element_train(G,relation,label,filename):
         try:
             item2user_neighbor = nx.neighbors(G,user)
             np.random.shuffle(item2user_neighbor)
+            '''
             if len(item2user_neighbor) > Max_Num_Neighbor:
             	item2user_neighbor = item2user_neighbor[:Max_Num_Neighbor]
+            '''
         except:
             item2user_neighbor = []
         

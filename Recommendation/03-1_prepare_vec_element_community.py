@@ -14,7 +14,7 @@ relation_train_label = pd.read_csv('./Data/relation_train_label.csv')
 
 Max_Num_Neighbor = 50
 
-resolution = 0.5
+resolution = input('resolution : ')#0.1
 
 
 

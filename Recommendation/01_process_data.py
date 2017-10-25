@@ -4,14 +4,15 @@
 
 import pandas as pd
 from collections import Counter
+import numpy as np
 
 Data = pd.read_csv('./Data/data.csv',names = ['user','item'])
 
 userid = Data.user
 movieid = Data.item
 
-rating = [1]*len(Data)
-timestamp = [1]* len(Data)
+rating = abs(np.random.randn(len(Data))*10).astype('int')+1
+timestamp = abs(np.random.randn(len(Data)))
 
 Pair_Data = pd.DataFrame({'userid':userid,'movieid':movieid,'rating':rating,'timestamp':timestamp})
 Pair_Data = Pair_Data[['userid', 'movieid', 'rating', 'timestamp']]
@@ -27,6 +28,8 @@ user_select_set = set(user_select)
 tag = [1 if user in user_select_set else 0 for user in Pair_Data.userid.values]    
 Pair_Data['tag'] = tag          
 Pair_Data_Select = Pair_Data[Pair_Data.tag == 1]  
+
+Pair_Data_Select = Pair_Data_Select.ix[:,:4]
 
 # output data 
 
